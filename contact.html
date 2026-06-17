@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Nikhitha Yalavarthi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B1D3A;
+      --steel: #1E3A5F;
+      --gold: #C9A84C;
+      --gold-light: #E6C97A;
+      --muted: #8A9BB5;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(11, 29, 58, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--gold);
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    /* HERO BAND */
+    .contact-hero {
+      padding: 10rem 4rem 5rem;
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: start;
+    }
+
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+
+    .contact-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1; color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .contact-left p {
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.8; font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    /* CONTACT INFO CARDS */
+    .contact-cards { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-card {
+      display: flex; align-items: center; gap: 1.2rem;
+      background: rgba(30,58,95,0.4);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 4px;
+      padding: 1.2rem 1.5rem;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-card:hover { border-color: rgba(201,168,76,0.4); transform: translateX(4px); }
+
+    .contact-card-icon {
+      width: 40px; height: 40px;
+      background: rgba(201,168,76,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .contact-card-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+    .contact-card-value {
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    /* FORM SIDE */
+    .contact-form-wrap {
+      background: rgba(30,58,95,0.3);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 6px;
+      padding: 2.5rem;
+    }
+
+    .contact-form-wrap h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .contact-form-wrap > p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .form-group { margin-bottom: 1.4rem; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(11,29,58,0.6);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 3px;
+      padding: 0.85rem 1rem;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: rgba(201,168,76,0.5); }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(138,155,181,0.5); }
+
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 1rem;
+      border: none;
+      border-radius: 2px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+
+    /* SUCCESS STATE */
+    .success-msg {
+      display: none;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 4px;
+      padding: 1.2rem;
+      text-align: center;
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    /* SOCIAL STRIP */
+    .social-strip {
+      background: var(--steel);
+      padding: 4rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: flex; align-items: center; gap: 0.8rem;
+      background: rgba(11,29,58,0.5);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px;
+      padding: 1rem 1.8rem;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .social-btn:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .social-btn span { font-size: 1.1rem; }
+
+    footer {
+      padding: 2rem 4rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--gold); text-decoration: none; font-size: 0.8rem; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .contact-hero { grid-template-columns: 1fr; gap: 3rem; padding: 8rem 1.5rem 4rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .social-strip { padding: 3rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">LN·Y</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="contact-hero">
+
+  <!-- LEFT: INFO -->
+  <div class="contact-left">
+    <p class="section-label">Let's Connect</p>
+    <h1>Get in Touch</h1>
+    <p>
+      I'm currently open to internship and full-time opportunities in software development and machine learning. Whether you have a role, a project idea, or just want to talk tech — I'd love to hear from you.
+    </p>
+
+    <div class="contact-cards">
+      <a href="mailto:ylnikhitha@gmail.com" class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <div>
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-value">ylnikhitha@gmail.com</div>
+        </div>
+      </a>
+      <a href="tel:+919550904375" class="contact-card">
+        <div class="contact-card-icon">📞</div>
+        <div>
+          <div class="contact-card-label">Phone</div>
+          <div class="contact-card-value">+91-9550904375</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/ylnikhitha16/" target="_blank" class="contact-card">
+        <div class="contact-card-icon">💼</div>
+        <div>
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-value">linkedin.com/in/ylnikhitha16</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div class="contact-form-wrap">
+    <h2>Send a Message</h2>
+    <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" id="firstName" placeholder="Jane" />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" id="lastName" placeholder="Smith" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="jane@example.com" />
+    </div>
+
+   
+    <div class="form-group">
+      <label>Message</label>
+      <textarea id="message" placeholder="Tell me about the role or project..."></textarea>
+    </div>
+
+    <button class="btn-submit" onclick="handleSubmit()">Send Message</button>
+    <div class="success-msg" id="successMsg">
+      ✓ &nbsp; Thanks for reaching out! I'll reply within 24–48 hours.
+    </div>
+   
+  </div>
+
+</div>
+
+<!-- SOCIAL LINKS -->
+<div class="social-strip">
+  <a href="https://www.linkedin.com/in/ylnikhitha16/" target="_blank" class="social-btn">
+    <span>💼</span> LinkedIn
+  </a>
+  <a href="mailto:ylnikhitha@gmail.com" class="social-btn">
+    <span>✉️</span> Email
+  </a>
+  <a href="https://github.com/Nikhithayalavarthi" class="social-btn">
+    <span>🐙</span> GitHub
+  </a>
+</div>
+
+<footer>
+  <p>© 2026 Lakshmi Nikhitha Yalavarthi</p>
+  <a href="https://www.linkedin.com/in/ylnikhitha16/" target="_blank">LinkedIn ↗</a>
+</footer>
+
+<script>
+  function handleSubmit() {
+    const first = document.getElementById('firstName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!first || !email || !message) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+
+    // Build mailto link
+    const subject = document.getElementById('subject').value || 'Portfolio Enquiry';
+    const last = document.getElementById('lastName').value;
+    const body = `Hi Nikhitha,\n\nI'm ${first} ${last}.\n\n${message}\n\nBest regards,\n${first}`;
+    const mailto = `mailto:ylnikhitha@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+
+    document.getElementById('successMsg').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

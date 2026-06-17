@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Nikhitha Yalavarthi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B1D3A;
+      --steel: #1E3A5F;
+      --gold: #C9A84C;
+      --gold-light: #E6C97A;
+      --muted: #8A9BB5;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(11, 29, 58, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--gold);
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    .page-header {
+      padding: 10rem 4rem 4rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.1; color: var(--white);
+    }
+    .page-header p {
+      margin-top: 1.2rem;
+      font-size: 1rem; color: var(--muted);
+      max-width: 520px; line-height: 1.7; font-weight: 300;
+    }
+
+    /* PROJECTS */
+    .projects-wrap {
+      max-width: 1100px; margin: 0 auto;
+      padding: 2rem 4rem 6rem;
+    }
+
+    .project-card {
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 3rem;
+      transition: border-color 0.3s;
+      background: rgba(30,58,95,0.25);
+    }
+    .project-card:hover { border-color: rgba(201,168,76,0.4); }
+
+    .project-header {
+      padding: 2.5rem;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;
+    }
+
+    .project-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: rgba(201,168,76,0.15);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .project-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+    }
+
+    .project-body { padding: 2.5rem; }
+
+    .project-body p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .feature-list li {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      font-size: 0.9rem; color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+    .feature-list li::before {
+      content: '→';
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* PUBLICATION */
+    .publication-section {
+      background: var(--steel);
+      padding: 5rem 4rem;
+    }
+    .pub-inner { max-width: 1100px; margin: 0 auto; }
+
+    .pub-card {
+      background: rgba(11,29,58,0.5);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 4px;
+      padding: 2.5rem;
+      margin-top: 2.5rem;
+      display: flex; gap: 2rem; align-items: flex-start;
+    }
+    .pub-icon {
+      width: 50px; height: 50px; flex-shrink: 0;
+      background: rgba(201,168,76,0.1);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .pub-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .pub-content p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .pub-content ul {
+      list-style: none; margin-top: 1rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .pub-content ul li {
+      font-size: 0.85rem; color: rgba(255,255,255,0.6);
+      display: flex; gap: 0.6rem;
+    }
+    .pub-content ul li::before { content: '·'; color: var(--gold); }
+
+    /* CTA */
+    .cta-section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--white); margin-bottom: 1rem;
+    }
+    .cta-section p {
+      color: var(--muted); font-size: 0.95rem;
+      max-width: 440px; margin: 0 auto 2.5rem;
+      line-height: 1.7; font-weight: 300;
+    }
+
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      padding: 0.85rem 2.2rem; border-radius: 2px;
+      text-decoration: none; font-size: 0.85rem;
+      font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    footer {
+      padding: 2rem 4rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--gold); text-decoration: none; font-size: 0.8rem; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .page-header, .projects-wrap, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .publication-section { padding: 4rem 1.5rem; }
+      .pub-card { flex-direction: column; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">LN·Y</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="section-label">What I've Built</p>
+  <h1>Projects</h1>
+  <p>A selection of full-stack applications and machine learning systems built with a focus on clean architecture and real-world utility.</p>
+</div>
+
+<div class="projects-wrap">
+
+  <!-- Project 1 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div>
+        <div class="project-num">01</div>
+        <div class="project-category">Full-Stack · AI · RAG</div>
+        <h2 class="project-title">Chat with Documents using RAG</h2>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">Vector Search</span>
+        <span class="tag">Embeddings</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>
+        A full-stack application that lets users upload documents and query them through a conversational chat interface — powered by Retrieval-Augmented Generation. The system uses vector embeddings to retrieve semantically relevant content and generate accurate, context-aware responses.
+      </p>
+      <ul class="feature-list">
+        <li>Developed RESTful APIs for document ingestion, processing, and response generation using Flask</li>
+        <li>Integrated vector search and embeddings for scalable, accurate information retrieval from large documents</li>
+        <li>Designed modular backend architecture following clean code principles for maintainability and extensibility</li>
+        <li>Built a seamless chat interface enabling natural language queries against user-uploaded documents</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div>
+        <div class="project-num">02</div>
+        <div class="project-category">Machine Learning · Predictive Analytics</div>
+        <h2 class="project-title">Fleet Fluid Mechanism Predictor</h2>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Random Forest</span>
+        <span class="tag">Flask</span>
+        <span class="tag">API Integration</span>
+        <span class="tag">Data Pipelines</span>
+        <span class="tag">Python</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>
+        A machine learning system that predicts fleet fuel requirements from operational data, helping logistics teams make data-driven decisions about fuel management. Prediction functionality is exposed via REST APIs for smooth frontend integration.
+      </p>
+      <ul class="feature-list">
+        <li>Trained a Random Forest model on operational fleet data to predict fuel requirements with high accuracy</li>
+        <li>Exposed model predictions via REST APIs, enabling seamless integration with frontend dashboards</li>
+        <li>Built robust data pipelines and preprocessing workflows to handle noisy, real-world operational data</li>
+        <li>Applied debugging and optimization techniques to improve system reliability and prediction confidence</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- PUBLICATION -->
+<section class="publication-section">
+  <div class="pub-inner">
+    <p class="section-label">Research</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--white);">Publications</h2>
+    <div class="pub-card">
+      <div class="pub-icon">📄</div>
+      <div class="pub-content">
+        <h3>Predicting Student Dropout Rates using Socio-Economic Indicators</h3>
+        <p>A research study applying machine learning to district-level datasets to identify patterns influencing student dropout rates — combining data analysis with explainability for real policy impact.</p>
+        <ul>
+          <li>Analyzed district-level datasets to surface socio-economic patterns linked to student dropout</li>
+          <li>Applied ML models to support data-driven educational policy decisions</li>
+          <li>Focused on model explainability and interpretability of outcomes for non-technical stakeholders</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Interested in Working Together?</h2>
+  <p>I'm open to internship and full-time opportunities in software development and ML engineering.</p>
+  <a href="contact.html" class="btn-primary">Let's Connect</a>
+</div>
+
+<footer>
+  <p>© 2026 Lakshmi Nikhitha Yalavarthi</p>
+  <a href="https://www.linkedin.com/in/ylnikhitha16/" target="_blank">LinkedIn ↗</a>
+</footer>
+
+</body>
+</html>

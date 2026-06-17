@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Nikhitha Yalavarthi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B1D3A;
+      --steel: #1E3A5F;
+      --gold: #C9A84C;
+      --gold-light: #E6C97A;
+      --off-white: #F5F3EE;
+      --muted: #8A9BB5;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(11, 29, 58, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--gold);
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 10rem 4rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.1; color: var(--white);
+    }
+
+    /* ABOUT INTRO */
+    .about-intro {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 4rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1.4rem;
+      font-weight: 300;
+    }
+
+    .about-text p strong { color: var(--gold); font-weight: 600; }
+
+    .about-sidebar {}
+
+    .sidebar-block {
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .sidebar-block h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .sidebar-block p, .sidebar-block a {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      text-decoration: none;
+    }
+    .sidebar-block a:hover { color: var(--white); }
+
+    /* EDUCATION */
+    .education-section {
+      background: var(--steel);
+      padding: 5rem 4rem;
+    }
+    .education-inner { max-width: 1100px; margin: 0 auto; }
+    .edu-card {
+      background: rgba(11,29,58,0.5);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 4px;
+      padding: 2.5rem;
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .edu-main h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .edu-main p { color: var(--muted); font-size: 0.9rem; }
+    .edu-badge {
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 2px;
+      padding: 0.6rem 1.2rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .edu-badge .cgpa {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .edu-badge .cgpa-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    /* SKILLS */
+    .skills-section {
+      padding: 5rem 4rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .skill-group {
+      background: rgba(30, 58, 95, 0.4);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 4px;
+      padding: 1.8rem;
+    }
+    .skill-group h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.78rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      letter-spacing: 0.03em;
+    }
+
+    /* CERTIFICATIONS */
+    .certs-section {
+      background: var(--steel);
+      padding: 5rem 4rem;
+    }
+    .certs-inner { max-width: 1100px; margin: 0 auto; }
+    .cert-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .cert-item {
+      display: flex; align-items: center; gap: 1.5rem;
+      background: rgba(11,29,58,0.4);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 4px;
+      padding: 1.5rem 2rem;
+      transition: border-color 0.2s;
+    }
+    .cert-item:hover { border-color: rgba(201,168,76,0.35); }
+    .cert-icon {
+      width: 36px; height: 36px;
+      background: rgba(201,168,76,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .cert-info h4 { font-size: 0.95rem; color: var(--white); margin-bottom: 0.2rem; }
+    .cert-info p { font-size: 0.8rem; color: var(--muted); }
+
+    footer {
+      padding: 2rem 4rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--gold); text-decoration: none; font-size: 0.8rem; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .page-header, .about-intro, .skills-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .about-intro { grid-template-columns: 1fr; gap: 3rem; }
+      .education-section, .certs-section { padding: 4rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">LN·Y</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="section-label">Get to Know Me</p>
+  <h1>About Me</h1>
+</div>
+
+<div class="about-intro">
+  <div class="about-text">
+    <p>
+      I'm <strong>Lakshmi Nikhitha Yalavarthi</strong>, a final-year Computer Science student at VIT-AP, graduating in 2026 with a CGPA of 8.80. My work sits at the intersection of software engineering and applied machine learning.
+    </p>
+    <p>
+     I build full-stack applications using <strong>Java and Python</strong>, design RESTful APIs, and integrate ML models into production-ready systems. I also apply <strong>UI/UX principles</strong> to create intuitive, user-friendly interfaces that enhance overall user experience. I care deeply about writing clean, maintainable code — following SOLID principles and modular architecture so my work can scale and be understood by others.
+
+    </p>
+    <p>
+      Beyond the code, I'm drawn to the research side of AI — I've published work on <strong>predicting student dropout rates</strong> using socio-economic indicators, combining data analysis with a commitment to social impact.
+    </p>
+    <p>
+      I thrive in Agile teams, value thoughtful problem-solving, and am always looking for ways to build software that genuinely helps people.
+    </p>
+  </div>
+  <div class="about-sidebar">
+    <div class="sidebar-block">
+      <h3>Location</h3>
+      <p>India</p>
+    </div>
+    <div class="sidebar-block">
+      <h3>Email</h3>
+      <p><a href="mailto:ylnikhitha@gmail.com">ylnikhitha@gmail.com</a></p>
+    </div>
+    <div class="sidebar-block">
+      <h3>Phone</h3>
+      <p>+91-9550904375</p>
+    </div>
+    <div class="sidebar-block">
+      <h3>LinkedIn</h3>
+      <p><a href="https://www.linkedin.com/in/ylnikhitha16/" target="_blank">ylnikhitha16 ↗</a></p>
+    </div>
+    <div class="sidebar-block">
+      <h3>GitHub</h3>
+      <p><a href="https://github.com/Nikhithayalavarthi" target="_blank">View Profile ↗</a></p>
+    </div>
+  </div>
+</div>
+
+<section class="education-section">
+  <div class="education-inner">
+    <p class="section-label">Academic Background</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--white);">Education</h2>
+    <div class="edu-card">
+      <div class="edu-main">
+        <h3>Vellore Institute of Technology — VIT-AP</h3>
+        <p>B.Tech in Computer Science &nbsp;·&nbsp; 2022 – 2026</p>
+      </div>
+      <div class="edu-badge">
+        <div class="cgpa">8.80</div>
+        <div class="cgpa-label">CGPA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section">
+  <p class="section-label">Technical Proficiency</p>
+  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--white);">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="skill-tags">
+        <span class="tag">Java</span>
+        <span class="tag">Python</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+       
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>UI/UX Design</h3>
+      <div class="skill-tags">
+        <span class="tag">Canva</span>
+        <span class="tag">Figma</span>
+        <span class="tag">PowerPoint</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>ML & Data</h3>
+      <div class="skill-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Random Forest</span>
+       
+        <span class="tag">Embeddings</span>
+        <span class="tag">Vector Search</span>
+        <span class="tag">Data Pipelines</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Tools & Databases</h3>
+      <div class="skill-tags">
+        <span class="tag">Git</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">Google Colab</span>
+        <span class="tag">SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Concepts</h3>
+      <div class="skill-tags">
+        <span class="tag">DSA</span>
+        <span class="tag">OOP</span>
+        
+        <span class="tag">SDLC</span>
+        
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Soft Skills</h3>
+      <div class="skill-tags">
+        <span class="tag">Problem Solving</span>
+        <span class="tag">Analytical Thinking</span>
+        <span class="tag">Team Collaboration</span>
+        <span class="tag">Attention to Detail</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="certs-section">
+  <div class="certs-inner">
+    <p class="section-label">Credentials</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--white);">Certifications</h2>
+    <div class="cert-list">
+      <div class="cert-item">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-info">
+          <h4>Oracle Cloud Infrastructure Generative AI Professional</h4>
+          <p>Oracle · July 2025</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">🧠</div>
+        <div class="cert-info">
+          <h4>Artificial Intelligence using Google TensorFlow</h4>
+          <p>Google · July 2024</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">🌐</div>
+        <div class="cert-info">
+          <h4>Web Development</h4>
+          <p>Corizo · August 2024</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Lakshmi Nikhitha Yalavarthi</p>
+  <a href="https://www.linkedin.com/in/ylnikhitha16/" target="_blank">LinkedIn ↗</a>
+</footer>
+
+</body>
+</html>
